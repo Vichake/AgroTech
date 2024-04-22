@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}Advice{% endblock title %}
+{% block body %}
+<style>
+    /* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Headings */
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Advice Sections */
+.advice-section {
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer; /* Indicate clickable sections */
+  position: relative; /* Required for hover animation */
+}
+
+.advice-section:hover {
+  transform: translateY(-5px); /* More prominent hover lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increased hover shadow */
+}
+
+/* Remove white overlay on hover (prevents information hiding) */
+.advice-section:hover:after {
+  display: none;
+}
+
+/* Grow Animation */
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+  }
+}
+
+/* Active Advice Detail (for clicked section) */
+.advice-section.active {
+  background-color: #f0f0f0; /* Change background for active section */
+  border: 2px solid #007bff; /* Add a blue border for active section */
+}
+
+/* Advice Section Image */
+.advice-section img {
+  width: 300px;
+  height: 200px;
+  margin-right: 30px;
+  border-radius: 5px;
+  object-fit: cover; /* Ensure images fill container proportionally */
+}
+
+/* Advice Section Text Content */
+.advice-section .content {
+  flex: 1;
+}
+
+.advice-section .content h2 {
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  color: #333;
+}
+
+.advice-section .content p {
+  line-height: 1.5;
+  color: #666;
+}
+
+/* "Learn More" Links */
+.advice-section .content a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.advice-section .content a:hover {
+  text-decoration: underline;
+}
+
+/* Hide Advice Details Initially */
+.advice-details {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+</style>
+<div class="container">
+    <h1>Expert Advice for Farmers</h1>
+
+    <div class="advice-section" id="crop-management">
+        <h2>Crop Management Tips</h2>
+        <p>Learn best practices for crop selection, planting techniques, irrigation, and pest control to maximize yields and ensure healthy crops.</p><br>
+        <p><a href="https://www.agrifarming.in/19-key-rules-for-effective-crop-management-a-profitable-agricultural-tips-for-beginners" target="_blank">Learn More &raquo;</a></p>
+    </div>
+
+    <div class="advice-section" id="soil-health">
+        <h2>Soil Health and Fertility</h2>
+        <p>Discover methods to improve soil health through organic amendments, cover cropping, and soil testing. Maintain soil fertility for sustainable farming.</p><br>
+        <p><a href="https://link.springer.com/chapter/10.1007/978-3-030-31082-0_11" target="_blank">Learn More &raquo;</a></p>
+    </div>
+
+    <div class="advice-section" id="seasonal-farming">
+        <h2>Seasonal Farming Guidelines</h2>
+        <p>Explore seasonal calendars and farming schedules for different regions. Understand when to plant, harvest, and manage crops throughout the year.</p><br>
+        <p><a href="https://www.agriplast.co.in/blogs/mastering-seasonal-crop-planning-in-india-a-comprehensive-guide-to-boost-yield-and-sustainability#:~:text=India's%20primary%20agricultural%20seasons%20are,soil%20type%2C%20and%20water%20availability." target="_blank">Learn More &raquo;</a></p>
+    </div>
+
+    <div class="advice-section" id="sustainable-agriculture">
+        <h2>Sustainable Agriculture Practices</h2>
+        <p>Explore eco-friendly farming techniques such as integrated pest management (IPM), crop rotation, and water conservation to promote sustainability.</p><br>
+        <p><a href="https://www.ucsusa.org/resources/what-sustainable-agriculture" target="_blank">Learn More &raquo;</a></p>
+    </div>
+
+    <div class="advice-section" id="market-trends">
+        <h2>Market Trends and Marketing Strategies</h2>
+        <p>Stay informed about market trends and consumer preferences. Learn effective marketing strategies to promote farm products and reach new customers.</p><br>
+        <p><a href="https://extension.psu.edu/destination-marketing-strategies-for-farm-markets" target="_blank">Learn More &raquo;</a></p>
+    </div>
+
+    <div class="advice-section" id="livestock-care">
+        <h2>Livestock Care and Management</h2>
+        <p>Gain insights into livestock health, nutrition, and housing requirements. Learn proper management practices for dairy, poultry, and other livestock.</p><br>
+        <p><a href="https://extension.umn.edu/dairy-handling-and-best-practices/livestock-farm-management#:~:text=Livestock%20management&text=Water%2C%20shelter%2C%20cleanliness%20and%20low,and%20handled%20with%20minimal%20stress." target="_blank">Learn More &raquo;</a></p>
+    </div>
+
+
+</div>
+{% endblock body %}

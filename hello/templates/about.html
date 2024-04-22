@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock title %}
+{% block body %}
+<style>
+    /* Hero Section */
+.hero {
+  position: relative;
+  background-image: url("images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  opacity: 0.3; /* Adjust opacity for content visibility */
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Services Section */
+.services {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.services h3 {
+  margin-bottom: 20px;
+}
+
+.service-icon {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 2em;
+  color: #007bff;
+}
+
+.services li {
+  width: calc(33% - 20px); /* Adjust for spacing between list items */
+  margin-bottom: 30px;
+}
+
+/* Team Section */
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.team-member {
+  width: calc(33% - 20px); /* Adjust for spacing between team members */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-info {
+  margin-top: 50px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #007bff;
+}
+
+.contact-info .btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.contact-info .btn:hover {
+  background-color: #0067cc;
+}
+
+</style>
+<div class="container">
+    <h1>About Our Farmer Resource Hub</h1>
+
+    <p>Welcome to our Farmer Resource Hub, dedicated to empowering farmers with knowledge and connections to thrive in modern agriculture.</p>
+
+    <h2>Our Mission</h2>
+    <p>Our mission is to provide farmers with easy access to educational content, connect them with reputable dealers, and facilitate market opportunities for their produce.</p>
+
+    <h2>What We Offer</h2>
+    <ul>
+        <li><strong>Educational Content:</strong> Explore a variety of resources covering crop management, sustainable farming practices, and industry trends.</li>
+        <li><strong>Dealer Connections:</strong> Connect directly with agricultural suppliers and dealers to access quality products and services for your farm.</li>
+        <li><strong>Market Opportunities:</strong> Discover nearby markets and trading platforms to sell your produce and make informed marketing decisions.</li>
+    </ul>
+
+    <h2>Our Team</h2>
+    <p>We are a passionate team of agriculture enthusiasts, committed to supporting farmers and advancing the agricultural industry. Meet some of our key team members:</p>
+
+    
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? Feel free to reach out to us:</p>
+    <p>Email: <a href="mailto:info@farmerhub.com">info@farmerhub.com</a></p>
+    <p>Phone: <a href="tel:+1234567890">123-456-7890</a></p>
+</div>
+{% endblock body %}

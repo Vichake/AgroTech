@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %}Nearby{% endblock title %}
+{% block body %}
+<style>
+    .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0 1rem 2rem 1rem;
+    cursor: pointer;
+}
+
+.separator {
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+#nearestBloodBankDetails {
+    display: none;
+    margin-top: 2rem;
+}
+
+.blood-bank {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.blood-bank h3 {
+    margin-top: 0;
+}
+
+.blood-bank p {
+    margin-bottom: 0;
+}
+</style>
+<div class="container">
+    <p>Click the button below to find the nearest market.</p>
+    <button onclick="getLocation()">Click Here</button>
+    <div class="separator"></div>
+
+    <div id="nearestBloodBankDetails" style="display: none;">
+        <h2>Nearby market details</h2>
+        <div id="bloodBankList"></div>
+    </div>
+</div>
+
+
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showNearestBloodBanks);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showNearestBloodBanks(position) {
+        var userLatitude = position.coords.latitude;
+        var userLongitude = position.coords.longitude;
+
+        // Assume you have information about blood banks with their locations
+        var bloodBanks = [
+            {
+                name: "Pune Market Yard",
+                latitude: 18.486944,
+                longitude:  73.864667,
+                address: "Market Yard, Gultekadi, Pune, Maharashtra 411037",
+                contact: "123-456-7890"
+            },
+            {
+                name: "APMC Market vashi",
+                latitude: 19.0765,
+                longitude: 73.0073,
+                address: "Sector 19, Vashi, Navi Mumbai, Maharashtra 400703",
+                contact: "987-654-3210"
+            }
+            
+        ];
+
+        var nearestBloodBanks = findNearestBloodBanks(userLatitude, userLongitude, bloodBanks);
+        displayNearestBloodBanks(nearestBloodBanks);
+    }
+
+    function findNearestBloodBanks(userLatitude, userLongitude, bloodBanks) {
+        // Calculate distances and sort blood banks by distance
+        bloodBanks.forEach(function(bloodBank) {
+            bloodBank.distance = calculateDistance(userLatitude, userLongitude, bloodBank.latitude, bloodBank.longitude);
+        });
+        bloodBanks.sort((a, b) => a.distance - b.distance);
+        return bloodBanks.slice(0, 2); // Return the two nearest blood banks
+    }
+
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        var R = 6371; // Radius of the earth in km
+        var dLat = deg2rad(lat2 - lat1);
+        var dLon = deg2rad(lon2 - lon1);
+        var a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var d = R * c; // Distance in km
+        return d;
+    }
+
+    function deg2rad(deg) {
+        return deg * (Math.PI / 180)
+    }
+
+    function displayNearestBloodBanks(bloodBanks) {
+        var bloodBankList = document.getElementById("bloodBankList");
+        bloodBankList.innerHTML = ""; // Clear previous list
+
+        bloodBanks.forEach(function(bloodBank, index) {
+            var bloodBankDetails = document.createElement("div");
+            bloodBankDetails.innerHTML = `
+                <div class="blood-bank">
+                    <h3>market ${index + 1}</h3>
+                    <p>Name: ${bloodBank.name}</p>
+                    <p>Address: ${bloodBank.address}</p>
+                    <p>Contact: ${bloodBank.contact}</p>
+                </div>
+            `;
+            bloodBankList.appendChild(bloodBankDetails);
+        });
+
+        var nearestBloodBankDetails = document.getElementById("nearestBloodBankDetails");
+        nearestBloodBankDetails.style.display = "block";
+    }
+</script>
+
+{% endblock body %}

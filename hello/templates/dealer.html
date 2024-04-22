@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %}Market Dealers{% endblock title %}
+{% block body %}
+<style>
+    /* Basic styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Dealer section styles */
+.dealer {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.dealer h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.dealer p {
+  margin-bottom: 5px;
+}
+
+/* Contact details styles */
+.dealer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.dealer a:hover {
+  text-decoration: underline;
+}
+.dealer {
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 15px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out; /* Smooth transition */
+}
+
+.dealer:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  transform: translateY(-2px); /* Lift card slightly */
+}
+.dealer {
+  background: linear-gradient(to right, #f5f5f5, #e0e0e0); /* Subtle gradient */
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff; /* White text for better contrast */
+}
+
+.dealer p, .dealer a {
+  opacity: 0.8; /* Semi-transparent text */
+}
+.dealer h2 {
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); /* Drop shadow for headings */
+}
+
+.dealer p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.dealer {
+  background: linear-gradient(to right, #f5f5f5, #e0e0e0); /* Subtle gradient */
+  padding: 15px;
+  border-radius: 5px;
+  color: #333; /* Darker text color for better contrast */
+}
+
+.dealer p, .dealer a {
+  opacity: 0.9; /* Adjust opacity for desired text visibility */
+}
+.dealer {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+.dealer {
+  background-image: url("/static/random.jpg"); /* Replace with your image path */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Adjust size as needed */
+  padding: 15px;
+  border-radius: 5px;
+}
+.dealer {
+  transition: all 0.3s ease-in-out;
+}
+
+.dealer:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 5px solid #f08080; /* Example decorative border */
+  padding-bottom: 5px; /* Add padding for spacing */
+}
+
+</style>
+<div class="container">
+    <h1>Explore Market Dealers</h1>
+
+    <div class="dealer">
+        <h2>ABC Agro Supplies</h2>
+        <p>ABC Agro Supplies offers a wide range of seeds, fertilizers, and agricultural equipment. Contact us for bulk orders and special discounts for farmers.</p>
+        <p>Contact: <a href="tel:+123456789">123-456-789</a></p>
+        <p>Email: <a href="mailto:info@abcagrosupplies.com">info@abcagrosupplies.com</a></p>
+    </div>
+
+    <div class="dealer">
+        <h2>XYZ Farm Solutions</h2>
+        <p>XYZ Farm Solutions specializes in organic farming products and soil amendments. Connect with us for personalized consultation and product recommendations.</p>
+        <p>Contact: <a href="tel:+987654321">987-654-321</a></p>
+        <p>Email: <a href="mailto:hello@xyzfarmsolutions.com">hello@xyzfarmsolutions.com</a></p>
+    </div>
+
+    <div class="dealer">
+        <h2>PQR Agri Services</h2>
+        <p>PQR Agri Services provides integrated pest management solutions and crop advisory services. Reach out to us for expert guidance on pest control and crop health.</p>
+        <p>Contact: <a href="tel:+444333222">444-333-222</a></p>
+        <p>Email: <a href="mailto:info@pqragriservices.com">info@pqragriservices.com</a></p>
+    </div>
+</div>
+{% endblock body %}
